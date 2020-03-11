@@ -11,7 +11,32 @@
 ## Example usage
 
 ```yaml
-uses: umutphp/phpmetrics-action@v1
-with:
-  folder: './application/'
+ 
+name: WOSPM Checker
+on: [push]
+
+jobs:
+  wospm_checker:
+    runs-on: ubuntu-latest
+    name: WOSPM Checker
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: PhpMetrics
+        uses: umutphp/phpmetrics-action@v1
+      - name: Upload HTML Report
+        uses: actions/upload-artifact@v1
+        with:
+          name: HTML Report
+          path: phpmetrics.html
+      - name: Upload XML Report
+        uses: actions/upload-artifact@v1
+        with:
+          name: HTML Report
+          path: phpmetrics.xml
+      - name: Upload Violations Report
+        uses: actions/upload-artifact@v1
+        with:
+          name: HTML Report
+          path: violations.xml
 ```
