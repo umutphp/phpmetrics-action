@@ -1,23 +1,17 @@
-# Hello world docker action
+# PhpMetrics action
 
-This action prints "Hello World" to the log or "Hello" + the name of a person to greet. To learn how this action was built, see "[Creating a Docker container action](https://help.github.com/en/articles/creating-a-docker-container-action)" in the GitHub Help documentation.
+[PhpMetrics](https://github.com/phpmetrics/PhpMetrics) provides metrics about PHP project and classes, with beautiful and readable HTML report.
 
 ## Inputs
 
-### `who-to-greet`
+### `folder`
 
-**Required** The name of the person to greet. Default `"World"`.
-
-## Outputs
-
-### `time`
-
-The time we greeted you.
+**Not Required** The path of the folder to scan. Default `"."`.
 
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-docker-action@master
+uses: umutphp/phpmetrics-action@v1
 with:
-  who-to-greet: 'Mona the Octocat'
+  folder: './application/'
 ```
